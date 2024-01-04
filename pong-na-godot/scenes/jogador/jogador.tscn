@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://gx5mg63d1dt"]
+
+[ext_resource type="Texture2D" uid="uid://d127teemf15fy" path="res://assets/sprites/jogador.png" id="1_aoxwa"]
+[ext_resource type="Script" path="res://scenes/jogador/jogador.gd" id="1_w3ll8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iplqc"]
+size = Vector2(20, 130)
+
+[node name="Jogador" type="StaticBody2D"]
+script = ExtResource("1_w3ll8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aoxwa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iplqc")
