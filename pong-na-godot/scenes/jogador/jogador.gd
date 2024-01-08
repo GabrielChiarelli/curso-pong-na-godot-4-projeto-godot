@@ -5,10 +5,6 @@ extends StaticBody2D
 var velocidade_do_jogador : int = 500
 
 
-func _ready():
-	pass
-
-
 func _process(delta):
 	movimentar_jogador(delta)
 	limitar_movimento_do_jogador()

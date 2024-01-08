@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnl41kbxwvvcu"]
+[gd_scene load_steps=7 format=3 uid="uid://cnl41kbxwvvcu"]
 
 [ext_resource type="Texture2D" uid="uid://dcl6bn47x1vxc" path="res://assets/sprites/campo-roxo.png" id="1_841qh"]
 [ext_resource type="Texture2D" uid="uid://d127teemf15fy" path="res://assets/sprites/jogador.png" id="2_hl7bd"]
 [ext_resource type="PackedScene" uid="uid://gx5mg63d1dt" path="res://scenes/jogador/jogador.tscn" id="3_yjfh4"]
 [ext_resource type="PackedScene" uid="uid://dwmlm77b2xskh" path="res://scenes/bola/bola.tscn" id="4_rkuge"]
+[ext_resource type="PackedScene" uid="uid://bkcvecsw0afu4" path="res://scenes/game_manager/game_manager.tscn" id="5_vvtcw"]
+[ext_resource type="PackedScene" uid="uid://dfti50l8eiygj" path="res://scenes/gol/gol.tscn" id="6_41tlp"]
 
 [node name="Main" type="Node2D"]
 
@@ -25,3 +27,14 @@ position = Vector2(1216, 360)
 
 [node name="Bola" parent="." instance=ExtResource("4_rkuge")]
 position = Vector2(640, 360)
+
+[node name="GameManager" parent="." instance=ExtResource("5_vvtcw")]
+
+[node name="Gol1" parent="." instance=ExtResource("6_41tlp")]
+position = Vector2(-64, 0)
+
+[node name="Gol2" parent="." instance=ExtResource("6_41tlp")]
+position = Vector2(1344, 0)
+
+[connection signal="area_entered" from="Gol1" to="GameManager" method="_on_gol_1_area_entered"]
+[connection signal="area_entered" from="Gol2" to="GameManager" method="_on_gol_2_area_entered"]
