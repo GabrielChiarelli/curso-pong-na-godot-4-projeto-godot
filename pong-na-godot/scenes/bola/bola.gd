@@ -1,12 +1,13 @@
 extends Area2D
 
 
-# Parâmetros
+# Movimento
 var velocidade_da_bola : int = 500
 var posicao_inicial : Vector2 = Vector2(640, 360)
 var direcao_inicial : Vector2 = Vector2(0, 0)
 var nova_direcao : Vector2 = Vector2(0, 0)
 
+# Limites
 var x_minimo : float = 0
 var x_maximo : float = 1280
 var y_minimo : float = 0
@@ -50,15 +51,15 @@ func escolher_direcao_inicial() -> void:
 
 
 func movimentar_bola(delta : float) -> void:
+	# Movimenta a Bola
 	position += nova_direcao * velocidade_da_bola * delta
 	
 
 func colidir_com_as_paredes() -> void:
 	# Manda a Bola na direção contrária ao tentar sair da tela
 	if position.y >= y_maximo or position.y <= y_minimo:
-		nova_direcao.y *= -1
-		
 		if position.x >= x_minimo and position.x <= x_maximo:
+			nova_direcao.y *= -1
 			som_impacto_barreira.play()	
 	
 	# +1 * +1 = +1

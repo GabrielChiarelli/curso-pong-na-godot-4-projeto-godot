@@ -17,10 +17,22 @@ var pontuacao_jogador2 : int = 0
 
 
 func _process(delta):
-	pass
+	receber_inputs()
+
+
+func receber_inputs() -> void:
+	# Reinicia a partida
+	if Input.is_action_just_pressed("reiniciar"):
+		get_tree().reload_current_scene()
+	
+	# Sai do jogo
+	if Input.is_action_just_pressed("sair"):
+		get_tree().quit()
 
 
 func _on_gol_1_area_entered(area):
+	# Chamado quando o Jogador 2 marca um gol
+	
 	som_impacto_gol.play()
 	pontuacao_jogador2 += 1
 	texto_pontuacao_jogador2.text = str(pontuacao_jogador2)
@@ -28,6 +40,8 @@ func _on_gol_1_area_entered(area):
 
 
 func _on_gol_2_area_entered(area):
+	# Chamado quando o Jogador 1 marca um gol
+	
 	som_impacto_gol.play()
 	pontuacao_jogador1 += 1
 	texto_pontuacao_jogador1.text = str(pontuacao_jogador1)

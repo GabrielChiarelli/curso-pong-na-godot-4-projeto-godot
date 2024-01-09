@@ -1,8 +1,15 @@
 extends StaticBody2D
 
 
+# Parâmetros
 @export var jogador1 : bool
+
+# Movimento
 var velocidade_do_jogador : int = 500
+
+# Limites
+var y_minimo : float = 64
+var y_maximo : float = 654
 
 
 func _process(delta):
@@ -28,4 +35,4 @@ func movimentar_jogador(delta : float) -> void:
 
 func limitar_movimento_do_jogador() -> void:
 	# Impede que o jogador saia da tela
-	position.y = clamp(position.y, 64, 654)
+	position.y = clamp(position.y, y_minimo, y_maximo)
