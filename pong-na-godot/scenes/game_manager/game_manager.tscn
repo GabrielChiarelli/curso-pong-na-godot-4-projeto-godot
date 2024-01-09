@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkcvecsw0afu4"]
+[gd_scene load_steps=3 format=3 uid="uid://bkcvecsw0afu4"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/game_manager.gd" id="1_6hpgx"]
+[ext_resource type="AudioStream" uid="uid://bava6522cirpv" path="res://assets/sons/impacto-gol.wav" id="2_c644b"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_6hpgx")
+
+[node name="SomImpactoGol" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c644b")
